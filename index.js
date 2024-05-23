@@ -1,7 +1,3 @@
-const stats = new Stats();
-stats.showPanel(0);
-document.body.appendChild(stats.domElement);
-
 const canvas = document.getElementById('canvas');
 
 const width = canvas.width;
@@ -521,8 +517,6 @@ const debug = new Debug();
 
 // Main rendering loop
 function animate() {
-  stats.begin();
-
   // Update the water
   if (clock.getElapsedTime() > 0.032) {
     waterSimulation.stepSimulation(renderer);
@@ -565,8 +559,6 @@ function animate() {
   renderer.render(scene, camera);
 
   controls.update();
-
-  stats.end();
 
   window.requestAnimationFrame(animate);
 }
